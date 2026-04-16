@@ -258,4 +258,3 @@ This helps teams track work efficiently and visually.
 
 The Overview section acts as a single source of truth, improving collaboration and visibility. Together with Azure Boards, it enables end‑to‑end planning, tracking, and delivery of high‑quality software
 
-```
