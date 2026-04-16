@@ -3,6 +3,8 @@ Azure DevOps is a suite of development tools from Microsoft designed to help tea
 
 This repository documents my step-by-step learning of Azure DevOps.
 
+![Image Alt](https://github.com/HarishDubbaka/Azure_Devops/blob/687c3b4a1d7b02babd1ca5c4357040a37beef9b9/dev.png)
+
 ---
 
 ## 📅 Day 01 – Azure DevOps Evolution
