@@ -293,81 +293,98 @@ The **Overview section** is the **central entry point of a project**, helping te
 
 ---
 
-# 📋 Azure Boards
+# 📊 Azure Boards
 
-Modern development requires efficient work tracking and collaboration.  
-Azure Boards provides Agile tools to manage the entire lifecycle.
-
----
-
-## 🔑 Key Capabilities
-
-### 📝 Work Item Management
-- Create and manage:
-  - User Stories  
-  - Bugs  
-  - Tasks  
-  - Features  
+Azure Boards is a service in Azure DevOps that helps teams plan, track, and manage work using Agile methodologies like Scrum and Kanban.
 
 ---
 
-### 📊 Queries & Charts
-- Build custom queries  
-- Visualize progress using charts  
+# 🧩 Azure Boards Hub & Functions
+
+## 📝 Work Items
+
+View and manage lists of work items filtered by different criteria such as:
+
+* 👤 Items assigned to you
+* ⭐ Items you follow
+* 🕒 Recently viewed or updated items
 
 ---
 
-### 📚 Backlog Management
-- Prioritize work  
-- Maintain clear and actionable backlog  
+## 📌 Boards (Kanban Boards)
+
+Visualize work items as cards and manage workflow efficiently.
+
+### 🔑 Features:
+
+* 🧲 Drag-and-drop cards across columns
+* 🔄 Update status in real time
+* 📊 Implement Kanban practices
+* 👀 Visualize team progress
 
 ---
 
-### 🏃 Sprint Planning
-- Plan iterations  
-- Track using:
-  - Velocity  
-  - Burndown charts  
+## 📚 Backlogs
+
+Organize and prioritize work items effectively.
+
+### 🔑 Usage:
+
+* 🗂️ Product backlog → Project planning
+* 🏗️ Portfolio backlog → Group work under:
+
+  * Features
+  * Epics
 
 ---
 
-### 📌 Task Boards
-- Interactive Kanban boards  
-- Drag-and-drop work tracking  
+## 🏃 Sprints
+
+Manage work for a specific iteration.
+
+### 🔑 Features:
+
+* 📅 Assign work to sprints
+* 🧲 Drag items from backlog to sprint
+* 📋 Use Taskboard for sprint planning
+* 📈 Track sprint progress
 
 ---
 
-### 🗂️ Portfolio Management
-- Organize hierarchy:
-  - Epics → Features → Tasks  
+## 🔍 Queries
+
+Create custom filtered views of work items.
+
+### 🔑 Use Cases:
+
+* 🧹 Work item triaging
+* 🔄 Bulk updates
+* 📊 Generate charts for dashboards
 
 ---
 
-### 🔄 Scrum Support
-- Supports:
-  - Daily standups  
-  - Sprint reviews  
-- Real-time collaboration  
+## 📅 Delivery Plans
+
+Track work across multiple teams.
+
+### 🔑 Features:
+
+* 🗓️ Calendar-based view
+* 🔗 Track dependencies
+* 📊 View progress of features and epics
+* 👥 Monitor cross-team deliverables
 
 ---
 
-## 📊 Benefits
+## 📊 Analytics Views
 
-- Complete project visibility  
-- Improved collaboration  
-- Data-driven decisions  
-- Supports Scrum, Kanban, and Scrumban  
+Create reports and dashboards using Azure Boards data.
 
----
+### 🔑 Features:
 
-## 🖼️ Example (Backlogs View)
-
-Azure Boards backlog page shows:
-- New Items  
-- Active Items  
-- Items to Analyze  
-
-This helps teams track work efficiently and visually.
+* 📈 Build Power BI reports
+* ⚙️ Use default or custom views
+* 📊 Track trends and performance
 
 ---
 
