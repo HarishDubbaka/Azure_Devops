@@ -57,3 +57,26 @@ This repository documents my step-by-step learning of Azure DevOps.
 
 ---
 
+## 📅 Day 04 – Work Items, Overview & Azure Boards
+
+### 📑 Table of Contents
+
+1. 📌 Work Items  
+2. ⚙️ Process Types (Agile, Scrum, CMMI, Basic)  
+3. 🧭 Navigation Overview  
+4. 🏢 Organization vs Project Settings  
+5. 📖 Azure DevOps Overview Section  
+6. 📊 Azure Boards  
+   - 🔹 Backlogs  
+   - 🔹 Boards  
+   - 🔹 Sprints  
+   - 🔹 Queries  
+7. 🎯 Key Takeaways  
+
+---
+
+## 🎯 Next Learning
+
+➡️ Azure Repos & Pipelines  
+
+
