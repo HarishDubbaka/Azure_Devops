@@ -107,6 +107,123 @@ Quick access to:
 
 ---
 
+# 🔍 Organization Settings vs Project Settings (Azure DevOps)
+
+Think of it like this:
+
+👉 **Organization = Company level (Global control)**
+👉 **Project = Team/Product level (Local control)**
+
+---
+
+# 🏢 Organization Settings (Global Level)
+
+These settings apply across **ALL projects** inside your Azure DevOps organization.
+
+### 🔑 Key Characteristics:
+
+* Centralized control
+* Managed by Org Admins
+* Impacts every project
+
+### ⚙️ What you configure here:
+
+* 👤 **Users & Permissions (global access)**
+* 🔐 Security policies (AAD integration, policies)
+* 💳 Billing & subscriptions
+* 🔗 Service connections (shared across projects)
+* 🧩 Extensions (marketplace installs)
+* 🌐 Repositories policies (optional org-level)
+* 🛠️ Agent pools (shared across projects)
+
+### 🧠 Example:
+
+If you:
+
+* Add a user at **organization level** → they *can access multiple projects*
+* Create an agent pool → *all projects can use it*
+
+---
+
+# 📁 Project Settings (Local Level)
+
+These settings apply only to a **specific project**.
+
+### 🔑 Key Characteristics:
+
+* Scoped to one project
+* Managed by Project Admins
+* Does NOT affect other projects
+
+### ⚙️ What you configure here:
+
+* 👥 Project users & roles
+* 📌 Boards (Epics, Stories, Tasks)
+* 📦 Repositories (Git settings)
+* 🚀 Pipelines (build & release)
+* 🔐 Project-level permissions
+* 🔗 Service connections (project-specific)
+* 🧪 Test plans
+
+### 🧠 Example:
+
+If you:
+
+* Create a repo → only that project sees it
+* Configure pipeline → runs only for that project
+* Add user to project → access limited to that project
+
+---
+
+# ⚖️ Side-by-Side Comparison
+
+| Feature        | Organization Settings | Project Settings          |
+| -------------- | --------------------- | ------------------------- |
+| Scope          | Entire organization   | Single project            |
+| Access Control | Global users          | Project-specific users    |
+| Admin Level    | Org Admin             | Project Admin             |
+| Agent Pools    | Shared                | Can use shared or project |
+| Pipelines      | Not defined here      | Defined here              |
+| Repos          | Not project-specific  | Managed here              |
+| Billing        | Yes                   | No                        |
+| Extensions     | Installed here        | Used in projects          |
+
+---
+
+# 🎯 Simple Real-Time Analogy
+
+👉 Imagine a company:
+
+* 🏢 **Organization Settings = Head Office**
+
+  * HR policies
+  * Company-wide tools
+  * Employee database
+
+* 📁 **Project Settings = Individual Teams**
+
+  * Team tasks
+  * Code repos
+  * Sprint planning
+
+---
+
+# 🚀 When to Use What?
+
+### Use **Organization Settings** when:
+
+* You want **central governance**
+* Sharing resources (agent pools, extensions)
+* Managing users across projects
+
+### Use **Project Settings** when:
+
+* You work on **specific application/product**
+* Managing pipelines, repos, boards
+* Controlling team-level access
+
+---
+
 # 🔎 Let’s Deep Dive into Each Section
 
 ---
