@@ -7,160 +7,183 @@ This repository documents my step-by-step learning of Azure DevOps.
 
 ---
 
-## 📅 Day 01 – Azure DevOps Evolution  
+## 📅 Day 01 – Azure DevOps Evolution
 
-### 📑 Table of Contents  
+### 📑 Table of Contents
 
-1. 📖 Introduction  
-2. 🏗️ Traditional Approach & Challenges  
-3. ⚡ Why Azure DevOps Evolved  
-4. 🔑 DevOps & Lifecycle  
-5. ☁️ Azure DevOps Overview  
-6. 🏢 Organizational Benefits  
-7. 📈 Popularity Reasons  
-8. 🎯 Conclusion  
-
----
-
-## 📅 Day 02 – DevOps Fundamentals & Azure DevOps Introduction  
-
-### 📑 Table of Contents  
-
-1. 📌 Overview  
-2. 🧾 Prerequisites  
-3. ☁️ Azure DevOps Introduction  
-4. 🔍 DevOps vs Traditional  
-5. 🔄 Waterfall vs Agile  
-6. ⚙️ What is DevOps?  
-7. 🔁 DevOps Lifecycle (CI/CD & Monitoring)  
-8. 🧠 Key Terminology  
-9. ✅ Summary  
-10. 📚 Next Steps  
+1. 📖 Introduction
+2. 🏗️ Traditional Approach & Challenges
+3. ⚡ Why Azure DevOps Evolved
+4. 🔑 DevOps & Lifecycle
+5. ☁️ Azure DevOps Overview
+6. 🏢 Organizational Benefits
+7. 📈 Popularity Reasons
+8. 🎯 Conclusion
 
 ---
 
-## 📅 Day 03 – Azure DevOps Setup Guide  
+## 📅 Day 02 – DevOps Fundamentals & Azure DevOps Introduction
 
-### 📑 Table of Contents  
+### 📑 Table of Contents
 
-1. 📌 Getting Started  
-2. ⚠️ Common Error & Solution  
-3. 🧩 Core Services Overview  
-   - 🗂️ Azure Boards  
-   - 📦 Azure Repos  
-   - ⚙️ Azure Pipelines  
-   - 🧪 Azure Test Plans  
-   - 📚 Azure Artifacts  
-4. 🎯 Summary  
-5. 🔗 Next Step  
-
----
-
-## 📅 Day 04 – Work Items, Overview & Azure Boards  
-
-### 📑 Table of Contents  
-
-1. 📌 Work Items  
-2. ⚙️ Process Types (Agile, Scrum, CMMI, Basic)  
-3. 🧭 Navigation Overview  
-4. 🏢 Organization vs Project Settings  
-5. 📖 Azure DevOps Overview Section  
-6. 📊 Azure Boards  
-   - 🔹 Backlogs  
-   - 🔹 Boards  
-   - 🔹 Sprints  
-   - 🔹 Queries  
-7. 🎯 Key Takeaways  
+1. 📌 Overview
+2. 🧾 Prerequisites
+3. ☁️ Azure DevOps Introduction
+4. 🔍 DevOps vs Traditional
+5. 🔄 Waterfall vs Agile
+6. ⚙️ What is DevOps?
+7. 🔁 DevOps Lifecycle (CI/CD & Monitoring)
+8. 🧠 Key Terminology
+9. ✅ Summary
+10. 📚 Next Steps
 
 ---
 
-## 📅 Day 05 – Azure Repos & Azure Pipelines  
+## 📅 Day 03 – Azure DevOps Setup Guide
 
-### 📑 Table of Contents  
+### 📑 Table of Contents
 
-1. 📦 Azure Repos  
-   - 🔹 Version Control  
-   - 🔹 Git & TFVC  
-   - 🔹 Dev Environment Integration  
+1. 📌 Getting Started
+2. ⚠️ Common Errors & Solutions
+3. 🧩 Core Services Overview
 
-2. ⚙️ Azure Pipelines  
-   - 🔹 Overview & Benefits  
-   - 🔹 Prerequisites  
-   - 🔹 Supported Platforms  
-
-3. 🔄 Continuous Integration (CI)  
-
-4. 🧪 Continuous Testing  
-
-5. 🚀 Continuous Delivery (CD)  
-
-6. 🌍 Deployment Targets  
-
-7. 📦 Package Management  
-
-8. 🎯 Conclusion  
+   * 🗂️ Azure Boards
+   * 📦 Azure Repos
+   * ⚙️ Azure Pipelines
+   * 🧪 Azure Test Plans
+   * 📚 Azure Artifacts
+4. 🎯 Summary
+5. 🔗 Next Steps
 
 ---
 
-## 📅 Day 06 – Azure Test Plans & Azure Artifacts  
+## 📅 Day 04 – Work Items, Overview & Azure Boards
 
-### 📑 Table of Contents  
+### 📑 Table of Contents
 
-1. 🔹 Overview  
+1. 📌 Work Items
+2. ⚙️ Process Types (Agile, Scrum, CMMI, Basic)
+3. 🧭 Navigation Overview
+4. 🏢 Organization vs Project Settings
+5. 📖 Azure DevOps Overview Section
+6. 📊 Azure Boards
 
-2. 🧪 Azure Test Plans  
-   - 🔹 Features  
-   - 🔹 Testing Types (Manual, UAT, Exploratory)  
-   - 🔹 Traceability & Reporting  
-   - 🔹 Core Components  
-
-3. 📦 Azure Artifacts  
-   - 🔹 Features  
-   - 🔹 Create Feed  
-   - 🔹 Package Types  
-   - 🔹 Workflows  
-
-4. 🎯 Summary  
-
-5. 📌 Best Practices  
-
-6. 📚 References  
+   * 🔹 Backlogs
+   * 🔹 Boards
+   * 🔹 Sprints
+   * 🔹 Queries
+7. 🎯 Key Takeaways
 
 ---
 
-## 📅 Day 07 – Agile Planning Lab with Azure Boards  
+## 📅 Day 05 – Azure Repos & Azure Pipelines
 
-### 📑 Table of Contents  
+### 📑 Table of Contents
 
-1. 🎯 Lab Objective  
+1. 📦 Azure Repos
 
-2. 🧠 What You Will Learn  
+   * 🔹 Version Control
+   * 🔹 Git & TFVC
+   * 🔹 Dev Environment Integration
 
-3. ⚙️ Prerequisites  
+2. ⚙️ Azure Pipelines
 
-4. 🏗️ Exercise 1: Create Project  
+   * 🔹 Overview & Benefits
+   * 🔹 Prerequisites
+   * 🔹 Supported Platforms
 
-5. 📥 Exercise 2: Import Repository  
+3. 🔄 Continuous Integration (CI)
 
-6. 👥 Exercise 3: Teams, Areas & Iterations  
+4. 🧪 Continuous Testing
 
-7. 📝 Exercise 4: Work Items  
-   - 🔹 Epic  
-   - 🔹 Feature  
-   - 🔹 Product Backlog Items (PBIs)  
+5. 🚀 Continuous Delivery (CD)
 
-8. 📊 Exercise 5: Kanban Board  
+6. 🌍 Deployment Targets
 
-9. 📋 Exercise 6: Tasks  
+7. 📦 Package Management
 
-10. 📈 Exercise 7: Backlog View  
-
-11. 🚀 Lab Outcome  
-
-12. 💡 Key Takeaways  
+8. 🎯 Conclusion
 
 ---
 
-## 🎯 Next Learning  
+## 📅 Day 06 – Azure Test Plans & Azure Artifacts
 
-➡️ Azure DevOps related topics  
+### 📑 Table of Contents
+
+1. 🔹 Overview
+2. 🧪 Azure Test Plans
+
+   * 🔹 Features
+   * 🔹 Testing Types (Manual, UAT, Exploratory)
+   * 🔹 Traceability & Reporting
+   * 🔹 Core Components
+3. 📦 Azure Artifacts
+
+   * 🔹 Features
+   * 🔹 Create Feed
+   * 🔹 Package Types
+   * 🔹 Workflows
+4. 🎯 Summary
+5. 📌 Best Practices
+6. 📚 References
+
+---
+
+## 📅 Day 07 – Agile Planning Lab with Azure Boards
+
+### 📑 Table of Contents
+
+1. 🎯 Lab Objective
+2. 🧠 What You Will Learn
+3. ⚙️ Prerequisites
+4. 🏗️ Exercise 1: Create Project
+5. 📥 Exercise 2: Import Repository
+6. 👥 Exercise 3: Teams, Areas & Iterations
+7. 📝 Exercise 4: Work Items
+
+   * 🔹 Epic
+   * 🔹 Feature
+   * 🔹 Product Backlog Items (PBIs)
+8. 📊 Exercise 5: Kanban Board
+9. 📋 Exercise 6: Tasks
+10. 📈 Exercise 7: Backlog View
+11. 🚀 Lab Outcome
+12. 💡 Key Takeaways
+
+---
+
+## 📅 Day 08 – Sprint Management & Dashboards
+
+### 📑 Contents
+
+* 🎯 Overview & Prerequisites
+* 🏗️ Sprint Planning & Capacity
+* 📊 Kanban Customization
+* 📈 Dashboards & Widgets
+* 📊 Query-Based Reporting
+* 🚀 Lab Outcome
+* 💡 Key Takeaways
+* ⚠️ Clean Up
+* 🎉 Conclusion
+
+---
+
+## 📅 Day 09 – Version Control with Git in Azure Repos om Local Setup
+
+### 📑 Contents
+
+* 📌 Overview
+* ⚙️ Prerequisites
+* 🛠️ Git & VS Code Setup
+* 📥 Clone Repository
+* 🌿 Branching Basics
+* 📚 Summary
+* 🚀 Next Steps
+
+---
+
+## 🎯 Next Learning
+
+➡️ Azure DevOps Advanced Topics
+
+📈 *From Nothing → Pro 🚀*
