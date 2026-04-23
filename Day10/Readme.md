@@ -1,25 +1,28 @@
 # 🚀 Git Commits, Staging & History in Azure DevOps
 
 ## 📌 Overview
+
 This lab demonstrates how to:
-- Save work using Git commits  
-- Stage specific changes  
-- Review commit history in Azure DevOps  
+
+* ✅ Save work using Git commits
+* ✅ Stage specific changes
+* ✅ Review commit history in Azure DevOps
 
 ---
 
 ## 🧪 Exercise 1: Save Work with Commits
 
 ### 🔹 Steps
-1. Open `Program.cs` in VS Code  
+
+1. Open `Program.cs` in VS Code
 2. Add a comment:
+
    ```csharp
    // My first change
-````
-
-3. Save (`Ctrl + S`)
+   ```
+3. Save the file (`Ctrl + S`)
 4. Go to **Source Control**
-5. Enter commit message:
+5. Enter a commit message:
 
    ```
    My commit
@@ -71,9 +74,9 @@ This lab demonstrates how to:
 
 ### 🔹 Key Concepts
 
-* Git tracks history using **parent commits**
-* History may not be linear due to **branches & merges**
-* Compare changes between commits instead of time
+* 📌 Git tracks history using **parent commits**
+* 🔀 History may not be linear due to **branches & merges**
+* 🔍 Compare changes between commits instead of relying on time
 
 ---
 
@@ -88,18 +91,14 @@ This lab demonstrates how to:
    * Select a commit
    * Click **Browse Files**
 
-📌 This shows the exact repository state at that commit.
+📌 This shows the exact repository state at that specific commit.
 
 ---
 
 ## ✅ Key Takeaways
 
-* Commits capture snapshots of your work
-* Staging enables selective commits
-* History helps track and compare changes
-* Azure DevOps provides a visual commit history
+* 🧠 Commits capture snapshots of your work
+* 🎯 Staging enables selective commits
+* 📜 History helps track and compare changes
+* 🌐 Azure DevOps provides a visual commit history
 
----
-
-```
-```
