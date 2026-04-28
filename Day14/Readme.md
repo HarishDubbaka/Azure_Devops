@@ -1,4 +1,4 @@
-# 🚀 Azure DevOps Pipelines – 
+# 🚀 Understanding Azure DevOps Pipelines 
 
 ## 🔷 Overview
 
@@ -52,6 +52,9 @@ Pipeline → Stages → Jobs → Steps
 ---
 
 # 🔁 Pipeline Flow Diagram
+
+https://github.com/HarishDubbaka/Azure_Devops/blob/0439f0ea164146a7c056241fe6cd1a4b92837638/Day14/pipeline.jpg
+
 
 ```text
         ┌──────────────┐
