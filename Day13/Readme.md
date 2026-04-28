@@ -49,10 +49,11 @@ Branch policies enforce rules before code can be merged into important branches 
 2. Ensure `main` branch is selected.
 3. Open file: `/eShopOnWeb/src/Web/Program.cs`.
 4. Add:
-   ```csharp
+---
+    ```csharp
    // Testing main branch policy
 ````
-
+---
 5. Click **Commit**.
 
 🚫 You will see a warning:
