@@ -416,8 +416,3 @@ This lab provided hands-on experience with:
 
 A strong foundational step toward enterprise DevOps engineering.
 
----
-
-# 🔖 Tags
-
-`#AzureDevOps` `#DevOps` `#SelfHostedAgents` `#YAMLPipelines` `#CI/CD` `#Azure`
