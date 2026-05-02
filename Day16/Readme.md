@@ -290,9 +290,7 @@ YAML is:
 ## 📚 Further Learning Topics
 
 * YAML in DevOps (CI/CD pipelines)
-* Kubernetes YAML configurations
-* Configuration as Code (CasC)
-* YAML schema validation
+* Enable Continuous Integration with Azure Pipelines
 
 ---
 
