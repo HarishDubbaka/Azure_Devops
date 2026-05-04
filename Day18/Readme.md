@@ -1,4 +1,4 @@
-# 🚀 Day 18 – Understanding GitHub & Importing eShopOnWeb Repository
+# Day 18 – Understanding GitHub & Importing eShopOnWeb Repository
 
 ## 📌 Overview
 
