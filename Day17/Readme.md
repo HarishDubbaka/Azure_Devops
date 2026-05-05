@@ -1,4 +1,4 @@
-# 🚀 Day 16 - Configure CI Pipeline as Code with YAML
+# 🚀 Day 17 - Configure CI Pipeline as Code with YAML
 
 ## 📌 Overview
 
