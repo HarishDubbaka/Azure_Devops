@@ -199,14 +199,16 @@ Go to:
 # 🎯 Key Takeaways
 
 ✅ YAML is the foundation of Azure DevOps pipelines
+
 ✅ Indentation and spacing are extremely important
+
 ✅ Pipelines are written as code using YAML
+
 ✅ Understanding stages, jobs, and steps is critical for CI/CD
 
 ---
 
 # 🚀 What’s Next?
 
-In the next session, explore:
+Lab Flow: Configure Pipelines as Code with YAML 
 
-Configure Pipelines as Code with YAML -- Lab
