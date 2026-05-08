@@ -335,6 +335,5 @@ You can now proceed with:
 * Azure DevOps YAML Pipelines
 * Continuous Integration (CI)
 * Continuous Deployment (CD)
-* App Service Deployments
-* Infrastructure as Code (IaC)
+* App Service Deployments Configure Environment settings for CI/CD Pipelines as Code with YAML in Azure DevOps
 
