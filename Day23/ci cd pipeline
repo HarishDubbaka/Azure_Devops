@@ -1,0 +1,106 @@
+# NAME THE PIPELINE SAME AS FILE (WITHOUT ".yml")
+
+trigger:
+- main
+
+resources:
+  repositories:
+    - repository: self
+      trigger: none
+
+stages:
+
+# =========================
+# BUILD STAGE
+# =========================
+- stage: Build
+  displayName: Build .NET Core Solution
+
+  jobs:
+    - job: Build
+      pool:
+        vmImage: ubuntu-latest
+
+      steps:
+
+        # Restore NuGet packages
+        - task: DotNetCoreCLI@2
+          displayName: Restore
+          inputs:
+            command: 'restore'
+            projects: '**/*.sln'
+            feedsToUse: 'select'
+
+        # Build solution
+        - task: DotNetCoreCLI@2
+          displayName: Build
+          inputs:
+            command: 'build'
+            projects: '**/*.sln'
+
+        # Run unit tests
+        - task: DotNetCoreCLI@2
+          displayName: Test
+          inputs:
+            command: 'test'
+            projects: 'tests/UnitTests/*.csproj'
+
+        # Publish application
+        - task: DotNetCoreCLI@2
+          displayName: Publish
+          inputs:
+            command: 'publish'
+            publishWebProjects: true
+            arguments: '-o $(Build.ArtifactStagingDirectory)'
+
+        # Publish Website Artifact
+        - task: PublishPipelineArtifact@1
+          displayName: Publish Artifacts ADO - Website
+          inputs:
+            targetPath: '$(Build.ArtifactStagingDirectory)'
+            artifact: 'Website'
+            publishLocation: 'pipeline'
+
+        # Publish Bicep Artifact
+        - task: PublishPipelineArtifact@1
+          displayName: Publish Artifacts ADO - Bicep
+          inputs:
+            targetPath: '$(Build.SourcesDirectory)/infra/webapp.bicep'
+            artifact: 'Bicep'
+            publishLocation: 'pipeline'
+
+# =========================
+# DEPLOY STAGE
+# =========================
+- stage: Deploy
+  displayName: Deploy to Azure Web App
+  dependsOn: Build
+
+  jobs:
+    - job: Deploy
+      pool:
+        vmImage: windows-latest
+
+      steps:
+
+        # Download Website Artifact
+        - task: DownloadBuildArtifacts@1
+          displayName: Download Website Artifact
+          inputs:
+            buildType: 'current'
+            downloadType: 'single'
+            artifactName: 'Website'
+            downloadPath: '$(Build.ArtifactStagingDirectory)'
+
+        # Deploy to Azure App Service
+        - task: AzureRmWebAppDeployment@4
+          displayName: Deploy Web App
+          inputs:
+            ConnectionType: 'AzureRM'
+            azureSubscription: 'azure subs'   # Replace with your service connection name
+            appType: 'webApp'
+            WebAppName: 'eshoponWebYAML61644079' # Replace with your webapp name
+            packageForLinux: '$(Build.ArtifactStagingDirectory)/Web.zip'
+            AppSettings: >
+              -UseOnlyInMemoryDatabase true
+              -ASPNETCORE_ENVIRONMENT Development
