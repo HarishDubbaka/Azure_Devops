@@ -93,3 +93,269 @@ Typical flow:
 * Rotate secrets regularly
 * Avoid downloading secrets unless necessary
 
+---
+
+# 🚀 Integrate Azure Key Vault with Azure DevOps
+
+Securely managing secrets is one of the most important practices in DevOps.
+In this lab, you’ll integrate **Azure Key Vault** with **Azure DevOps Pipelines** to securely store and consume secrets during CI/CD deployments.
+
+---
+
+# 📚 Lab Overview
+
+In this lab, you will:
+
+* Create an Azure Key Vault
+* Store Azure Container Registry (ACR) credentials as secrets
+* Grant Azure DevOps access to Key Vault
+* Create a Variable Group linked to Azure Key Vault
+* Retrieve secrets securely inside Azure Pipelines
+* Deploy a containerized application to Azure Container Instance (ACI)
+
+---
+
+# 🎯 Objectives
+
+After completing this lab, you will be able to:
+
+✅ Create and configure Azure Key Vault
+✅ Store secrets securely in Key Vault
+✅ Connect Azure DevOps Variable Groups with Key Vault
+✅ Retrieve secrets inside YAML pipelines
+✅ Deploy container images securely using secrets
+
+---
+
+# 🛠️ Prerequisites
+
+Before starting, ensure you have:
+
+* An Azure subscription
+* An Azure DevOps organization/project
+* Azure service connection configured
+* eShopOnWeb repository imported into Azure DevOps
+
+Repository used:
+
+[eShopOnWeb GitHub Repository](https://github.com/MicrosoftLearning/eShopOnWeb.git?utm_source=chatgpt.com)
+
+---
+
+# 🧩 Exercise 1 — Setup CI Pipeline
+
+## 📌 Create CI Pipeline
+
+Navigate to:
+
+`Azure DevOps → Pipelines → New Pipeline`
+
+Choose:
+
+* Azure Repos Git
+* Existing Azure Pipelines YAML file
+
+Select YAML file:
+
+```yaml
+/.ado/eshoponweb-ci-dockercompose.yml
+```
+
+Update:
+
+* Resource Group Name
+* Azure Subscription ID
+
+Pipeline tasks include:
+
+* Deploy Azure Container Registry (ACR)
+* Build Docker images
+* Push images to ACR
+
+---
+
+# 📦 Verify Azure Container Registry
+
+After pipeline execution:
+
+Navigate to:
+
+`Azure Portal → Resource Group → Azure Container Registry`
+
+Verify container images:
+
+* eshoppublicapi
+* eshopwebmvc
+
+Enable:
+
+`Access Keys → Admin User`
+
+Copy the ACR password.
+
+---
+
+# 🔐 Exercise 2 — Create Azure Key Vault
+
+## 📌 Create Key Vault
+
+Navigate to:
+
+`Azure Portal → Key Vaults → Create`
+
+Provide:
+
+| Setting          | Value               |
+| ---------------- | ------------------- |
+| Resource Group   | AZ400-EWebShop-NAME |
+| Vault Name       | ewebshop-kv-NAME    |
+| Pricing Tier     | Standard            |
+| Purge Protection | Disabled            |
+
+---
+
+# 🔑 Configure Access Policies
+
+Grant Azure DevOps Service Connection access:
+
+Secret permissions:
+
+* Get
+* List
+
+Select the Azure DevOps service principal connected to your service connection.
+
+---
+
+# 🧪 Add Secret to Key Vault
+
+Navigate to:
+
+`Key Vault → Secrets → Generate/Import`
+
+Create secret:
+
+| Setting | Value        |
+| ------- | ------------ |
+| Name    | acr-secret   |
+| Value   | ACR Password |
+
+---
+
+# 🔗 Exercise 3 — Create Variable Group
+
+Navigate to:
+
+`Azure DevOps → Pipelines → Library`
+
+Create Variable Group:
+
+| Setting                           | Value       |
+| --------------------------------- | ----------- |
+| Variable Group Name               | eshopweb-vg |
+| Link secrets from Azure Key Vault | Enabled     |
+
+Select:
+
+* Azure Subscription
+* Key Vault
+* Secret: `acr-secret`
+
+Save the variable group.
+
+---
+
+# 🚀 Exercise 4 — Setup CD Pipeline
+
+## 📌 Create CD Pipeline
+
+Use YAML file:
+
+```yaml
+/.ado/eshoponweb-cd-aci.yml
+```
+
+Update:
+
+* Azure Subscription ID
+* Resource Group Name
+* ACR Login Server
+* ACR Username
+* Container Instance Name
+
+---
+
+# 🔄 CD Pipeline Workflow
+
+The deployment pipeline will:
+
+1. Trigger after CI pipeline completion
+2. Retrieve secrets from Azure Key Vault
+3. Deploy Azure Container Instance (ACI)
+4. Pull container image securely from ACR
+
+---
+
+# 🏗️ Azure Key Vault Integration in YAML
+
+Example Variable Group reference:
+
+```yaml
+variables:
+- group: eshopweb-vg
+```
+
+Using secret inside tasks:
+
+```yaml
+$(acr-secret)
+```
+
+---
+
+# ✅ Verify Deployment
+
+Navigate to:
+
+`Azure Portal → Resource Group`
+
+Verify:
+
+* Azure Container Instance (ACI) created successfully
+* Application container running properly
+
+---
+
+# 🔒 Benefits of Azure Key Vault Integration
+
+✅ Centralized secret management
+✅ No hardcoded passwords in YAML pipelines
+✅ Improved security and compliance
+✅ Fine-grained access control
+✅ Secure CI/CD deployments
+
+---
+
+# 📝 Review
+
+In this lab, you:
+
+* Created Azure Key Vault
+* Stored ACR credentials securely
+* Granted Azure DevOps access
+* Linked Variable Groups with Key Vault
+* Retrieved secrets inside pipelines
+* Deployed containers securely to Azure Container Instance
+
+---
+
+# ☁️ Technologies Used
+
+* Microsoft
+* Microsoft
+* Microsoft
+* Microsoft
+* Docker
+* YAML Pipelines
+
+
