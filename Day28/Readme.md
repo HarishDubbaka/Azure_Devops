@@ -1,67 +1,158 @@
-# 🚀 Enable Dynamic Configuration & Feature Flags in Azure DevOps
+# 🚀 Enable Dynamic Configuration & Feature Flags with Azure DevOps
 
-Dynamic Configuration and Feature Flags help teams release features safely without redeploying applications. Using Azure DevOps with Azure App Configuration and Feature Management enables controlled rollouts, A/B testing, staged deployments, and instant feature toggling.
+This project demonstrates how to implement **Dynamic Configuration Management** and **Feature Flags** using:
+
+* Microsoft Azure DevOps
+* Microsoft Azure App Configuration
+* .NET .NET Applications
+* YAML Pipelines
+* Managed Identity + RBAC
+
+This lab shows how to safely release features without redeploying applications.
+
+---
+
+# 📌 Objective
+
+Learn how to:
+
+* Manage application configuration centrally
+* Enable runtime feature toggling
+* Deploy configuration changes through pipelines
+* Perform gradual feature rollouts
+* Reduce deployment risk
 
 ---
 
 # 📚 What are Feature Flags?
 
-Feature Flags (also called Feature Toggles) allow you to:
+Feature Flags (Feature Toggles) allow developers to control application functionality **without changing code or redeploying**.
 
-* Enable/disable features at runtime
-* Release features gradually
-* Test in production safely
-* Perform canary or phased rollouts
-* Hide incomplete functionality
+### Benefits
 
-Instead of deploying new code every time, you simply change configuration values.
+✅ Runtime enable/disable
+✅ Canary releases
+✅ Dark launches
+✅ Safer production testing
+✅ Instant rollback
 
 ---
 
-# 🏗️ Architecture Flow
+# 🏗️ Architecture
 
 ```text
-Developer → Azure DevOps Pipeline → Azure App Configuration
-                                      ↓
-                           Feature Flags & Configurations
-                                      ↓
-                              Application Runtime
+Developer
+   ↓
+Azure DevOps Pipeline
+   ↓
+Azure App Configuration
+   ↓
+Feature Flags / Config Values
+   ↓
+Application Runtime
 ```
 
 ---
 
 # 🔧 Services Used
 
-* Microsoft
-* Microsoft
-* Microsoft
+* Microsoft Azure DevOps
+* Microsoft Azure App Configuration
+* Microsoft Azure App Service
+* Managed Identity
+* Azure RBAC
 * Feature Management Libraries
-* YAML Pipelines
 
 ---
 
-# ⚙️ Step 1 — Create Azure App Configuration
+# Step 1: Create Azure Service Connection
 
-1. Go to Azure Portal
-2. Search for **Azure App Configuration**
-3. Create a new resource
-4. Add:
+Navigate to Azure DevOps:
 
-   * Configuration values
-   * Feature Flags
+[Azure DevOps Portal](https://aex.dev.azure.com?utm_source=chatgpt.com)
 
-Example:
+### Steps
+
+1. Open **Project Settings**
+2. Select **Service Connections**
+3. Click **Create Service Connection**
+4. Choose **Azure Resource Manager**
+5. Select:
+
+* Identity Type → App Registration (Automatic)
+* Authentication → Workload Identity Federation
+* Scope Level → Subscription
+
+Set:
 
 ```text
-Feature Name: NewDashboard
-State: Enabled
+Service Connection Name: azure subs
 ```
 
 ---
 
-# ⚙️ Step 2 — Install Feature Management Package
+# Step 2: Create Azure App Configuration
 
-For .NET applications:
+In the Azure Portal:
+
+[Azure Portal](https://portal.azure.com?utm_source=chatgpt.com)
+
+Create:
+
+```text
+Resource Name: appcs-xxxxx
+Tier: Standard
+Authentication: Access Keys Enabled
+```
+
+---
+
+# Step 3: Create Feature Flag
+
+Navigate:
+
+**Feature Manager → Create**
+
+Example:
+
+```text
+Feature Flag Name: SalesWeekend
+State: Enabled
+Description: Enables promotional banner
+```
+
+---
+
+# Step 4: Configure Managed Identity
+
+Enable **System Assigned Managed Identity** for your App Service.
+
+Assign RBAC role:
+
+```text
+App Configuration Data Reader
+```
+
+This allows your application to securely access configuration values.
+
+---
+
+# Step 5: Add Environment Variables
+
+In App Service → Environment Variables
+
+Add:
+
+```text
+AppConfigEndPoint=https://yourappconfig.azconfig.io
+UseAppConfig=true
+```
+
+---
+
+# Step 6: Install Feature Management Package
+
+For .NET:
 
 ```bash
 dotnet add package Microsoft.FeatureManagement.AspNetCore
@@ -69,19 +160,7 @@ dotnet add package Microsoft.FeatureManagement.AspNetCore
 
 ---
 
-# ⚙️ Step 3 — Configure App Settings
-
-```json
-{
-  "ConnectionStrings": {
-    "AppConfig": "<connection-string>"
-  }
-}
-```
-
----
-
-# ⚙️ Step 4 — Enable Feature Management
+# Step 7: Enable Feature Management
 
 ```csharp
 builder.Services.AddFeatureManagement();
@@ -89,11 +168,13 @@ builder.Services.AddFeatureManagement();
 
 ---
 
-# ⚙️ Step 5 — Use Feature Flags in Code
+# Step 8: Use Feature Flags in Code
+
+## Controller-based
 
 ```csharp
-[FeatureGate("NewDashboard")]
-public class DashboardController : Controller
+[FeatureGate("SalesWeekend")]
+public class PromotionController : Controller
 {
     public IActionResult Index()
     {
@@ -102,20 +183,18 @@ public class DashboardController : Controller
 }
 ```
 
-OR
+## Runtime Check
 
 ```csharp
-if (await featureManager.IsEnabledAsync("NewDashboard"))
+if (await featureManager.IsEnabledAsync("SalesWeekend"))
 {
-    // New Feature
+    // Display banner
 }
 ```
 
 ---
 
-# ⚙️ Step 6 — Integrate with Azure DevOps Pipeline
-
-Example YAML:
+# Step 9: Azure DevOps Pipeline Integration
 
 ```yaml
 trigger:
@@ -127,55 +206,99 @@ pool:
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'Azure-Service-Connection'
+    azureSubscription: 'azure subs'
     scriptType: bash
     scriptLocation: inlineScript
     inlineScript: |
       az appconfig feature set \
         --name myappconfig \
-        --feature NewDashboard \
+        --feature SalesWeekend \
         --yes
 ```
 
-This pipeline automatically updates feature flags during deployment.
+---
+
+# Step 10: Dynamic Configuration Example
+
+Create configuration value:
+
+```text
+Key: eShopWeb:Settings:NoResultsMessage
+Value: Sorry, we couldn't find what you're looking for.
+```
+
+The application updates dynamically **without redeployment**.
 
 ---
 
-# 🚀 Benefits
+# 🧪 Testing
 
-✅ Safe deployments
-✅ Instant rollback
-✅ Gradual feature rollout
-✅ Environment-based configuration
-✅ Reduced deployment risk
-✅ Better DevOps agility
+### Feature Flag Testing
+
+Toggle:
+
+```text
+SalesWeekend → Enabled / Disabled
+```
+
+Refresh application after ~10 seconds.
+
+Observe:
+
+* Banner appears
+* Banner disappears
 
 ---
 
 # 🎯 Real-World Use Cases
 
-* Canary Releases
-* Dark Launches
-* Beta Features
+* Canary Deployments
 * A/B Testing
-* Production Hotfix Toggles
-* Region-specific Features
+* Beta Features
+* Production Hotfixes
+* Regional Rollouts
 
 ---
 
 # 🔐 Best Practices
 
-* Keep feature names meaningful
-* Remove old flags regularly
-* Use separate environments
-* Secure secrets with Azure Key Vault
-* Audit feature changes
-* Avoid long-term permanent flags
+✔ Use meaningful names
+✔ Remove stale flags
+✔ Separate environments
+✔ Audit changes
+✔ Use Key Vault for secrets
 
 ---
 
-# 📌 Conclusion
+# 🧹 Cleanup
 
-Dynamic Configuration and Feature Flags make modern DevOps deployments safer and smarter. Combining Azure DevOps with Azure App Configuration enables teams to release faster while maintaining stability and control.
+Delete created resources:
 
-#AzureDevOps #FeatureFlags #DevOps #Azure #CI_CD #AppConfiguration #Cloud #Automation #YAML #MicrosoftAzure
+* Resource Group
+* App Configuration
+* App Service
+* Pipeline artifacts
+
+---
+
+# 📌 Key Learning Outcomes
+
+By completing this lab, I learned how to:
+
+* Implement centralized configuration management
+* Enable runtime feature toggles
+* Secure application access using Managed Identity
+* Integrate App Configuration with CI/CD
+* Perform zero-downtime configuration updates
+
+---
+
+# 🚀 Conclusion
+
+Azure App Configuration combined with Azure DevOps enables safer, faster, and smarter deployments.
+
+Dynamic configuration helps modern applications stay flexible while maintaining stability.
+
+---
+
+
